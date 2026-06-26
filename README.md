@@ -12,6 +12,49 @@ This project is a production-grade automated dispute resolution and fraud detect
 * **Deterministic Taxonomy Mapping**: Ensures strict enum fallback strategies to protect runtime pipelines against `500 Internal Server Error` crashes.
 * **Outbound Data Casting**: Guaranteed standard conversions for precision-bound floats (`confidence`) and native boolean parameters.
 
+## 🔄 System Execution Flow
+
+The engine handles incoming requests deterministically through the following lifecycle:
+
+```text
+  [ Incoming HTTP Request ] 
+             │
+             ▼
+     ┌───────────────┐
+     │   index.js    │ ──► Express HTTP Router handles routing and request entry
+     └───────────────┘
+             │
+             ▼
+     ┌───────────────┐
+     │  schemas.js   │ ──► Validates request payload structure & sanitizes malicious inputs
+     └───────────────┘
+             │
+             ▼
+     ┌───────────────┐
+     │investigator.js│ ──► Core engine matching engine cross-checks ledger history logs
+     └───────────────┘
+             │
+             ▼
+     ┌───────────────┐
+     │  aiEngine.js  │ ──► AI evaluation interfaces with language layer models 
+     └───────────────┘
+             │
+             ▼
+  [ 200 OK Structured JSON Payload Response Passed ]
+```
+
+1. Routing Layer (src/index.js): 
+   Captures inbound POST requests at /analyze-ticket and parses the JSON body middleware.
+
+2. Sanitization Filter (src/schemas.js): 
+   Scans text for security vulnerabilities, scrubs password/PIN requests, and enforces default fallbacks to prevent 500 server crashes.
+
+3. Core Rules Logic (src/investigator.js): 
+   Cross-references tracking logs with transaction history elements to match individual ids and evaluate ticket validity.
+
+4. AI Parsing Gateway (src/aiEngine.js): 
+   Evaluates unstructured context values into rigorous data parameters (severity, confidence) matching outbound specifications.
+
 ## 📡 API Endpoints
 * **GET** `/health` - Service operational availability check.
 * **POST** `/analyze-ticket` - Evaluates inbound complaints, matches transaction history, and issues standardized replies.
