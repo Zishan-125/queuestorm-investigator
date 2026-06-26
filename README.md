@@ -1,4 +1,4 @@
-# QueueStorm Investigator Subsystem - Assignment 3
+# QueueStorm Investigator Subsystem 
 
 ![Express.js](https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
