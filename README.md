@@ -14,33 +14,22 @@ This project is a production-grade automated dispute resolution and fraud detect
 
 ## 🔄 System Execution Flow
 
-The engine handles incoming requests deterministically through the following lifecycle:
+The engine handles incoming requests deterministically through the following automated lifecycle:
 
-```text
-  [ Incoming HTTP Request ] 
-             │
-             ▼
-     ┌───────────────┐
-     │   index.js    │ ──► Express HTTP Router handles routing and request entry
-     └───────────────┘
-             │
-             ▼
-     ┌───────────────┐
-     │  schemas.js   │ ──► Validates request payload structure & sanitizes malicious inputs
-     └───────────────┘
-             │
-             ▼
-     ┌───────────────┐
-     │investigator.js│ ──► Core engine matching engine cross-checks ledger history logs
-     └───────────────┘
-             │
-             ▼
-     ┌───────────────┐
-     │  aiEngine.js  │ ──► AI evaluation interfaces with language layer models 
-     └───────────────┘
-             │
-             ▼
-  [ 200 OK Structured JSON Payload Response Passed ]
+```mermaid
+graph TD
+    A[📩 Incoming HTTP Request] -->|POST /analyze-ticket| B(index.js Router)
+    B -->|Parse Request Middleware| C{schemas.js Filter}
+    C -->|Sanitize Input & Scrub PIN/OTP| D[investigator.js Core Engine]
+    D -->|Cross-Reference Ledger History| E[aiEngine.js Processing Layer]
+    E -->|Enforce Strict Data Schema Casting| F[📤 200 OK Structured JSON Response]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#fdf,stroke:#333,stroke-width:1px
+    style D fill:#fbf,stroke:#333,stroke-width:1px
+    style E fill:#dff,stroke:#333,stroke-width:1px
+    style F fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 1. Routing Layer (src/index.js): 
