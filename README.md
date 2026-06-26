@@ -1,35 +1,50 @@
-# QueueStorm Investigator Engine 🚀
-> **Production-grade Automated Dispute Resolution & Fraud Detection Subsystem** > Engineered for the **SUST CSE Carnival 2026** Hackathon.
+# QueueStorm Investigator Subsystem - Assignment 3
 
-An intelligent, low-latency transaction dispute analyzer built with Node.js and Express. It parses unstructured customer ticket complaints, maps them safely against transaction history logs, detects security anomalies (phishing/social engineering), and streams back structured, deterministic payloads matching 100% of strict scoring schemas.
+![Express.js](https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Thunder_Client](https://img.shields.io/badge/Thunder__Client-v2.x-732FDE?style=for-the-badge&logo=thunderclient&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
----
+This project is a production-grade automated dispute resolution and fraud detection rule engine built with Node.js and Express. It parses unstructured customer ticket complaints, reconciles them safely against ledger historical logs, catches adversarial prompt injections, and enforces schema compliance. Developed as part of the SUST CSE Carnival 2026 Hackathon.
 
-## 🛠️ Key Architectural Highlights
+## 🚀 Features
+* **Strict Structural Sanitization**: Automatic stripping of credential targets (PIN/OTP) to prevent critical information leakage.
+* **Deterministic Taxonomy Mapping**: Ensures strict enum fallback strategies to protect runtime pipelines against `500 Internal Server Error` crashes.
+* **Outbound Data Casting**: Guaranteed standard conversions for precision-bound floats (`confidence`) and native boolean parameters.
 
-* **Idempotent Data Sanitization:** Safely rewrites absolute promises and strips confidential credential requests (PIN/OTP/Passwords) from customer-facing text automatically to avoid data leakages.
-* **Deterministic Taxonomy Mapping:** Enforces explicit fallbacks (`phishing_or_social_engineering`, `other`) to prevent fracturing or unhandled `500 Internal Server Errors` during adversarial edge-case inputs.
-* **Strict Outbound Schema Validation:** Guarantees proper data type conversions (forcing native boolean primitives for `human_review_required` and exact decimal boundaries for `confidence`).
+## 📡 API Endpoints
+* **GET** `/health` - Service operational availability check.
+* **POST** `/analyze-ticket` - Evaluates inbound complaints, matches transaction history, and issues standardized replies.
 
----
+## 📸 Thunder Client Testing Results
 
-## 📂 Project Structure
+| Action / Endpoint | Verification Scope | Verification Screenshot |
+| :--- | :--- | :--- |
+| **GET** `/health` | Core Subsystem Live Check | ![Health Check](assets/result_1.png) |
+| **POST** `/analyze-ticket` | Ledger Reconciliation & History Match | ![Ledger Matching](assets/result_2+.png) |
+| **POST** `/analyze-ticket` | Adversarial Injection Block & Interception | ![Security Sanity Check](assets/result_3+.png) |
 
-As deployed in the official repository:
+## 🛠️ Tech Stack
+* **Backend**: Node.js, Express.js
+* **Tools**: VS Code, Thunder Client
+* **Version Control**: Git / GitHub
 
-```text
-queuestorm-investigator/
-├── assets/
-│   ├── result_1.png      # Health Probe Test Vector
-│   ├── result_2+.png     # Ledger Matching Verification Vector
-│   └── result_3+.png     # Security Injection Guard Vector
-├── src/
-│   ├── aiEngine.js       # Core artificial intelligence interface hooks
-│   ├── index.js          # Express app server and endpoint routing setup
-│   ├── investigator.js   # Main transaction mapping and analysis logic
-│   └── schemas.js        # Strict input validation and filters
-├── .env.example
-├── .gitignore
-├── package-lock.json
-├── package.json
-└── README.md
+## 🏃‍♂️ How to Run Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Zishan-125/queuestorm-investigator.git](https://github.com/Zishan-125/queuestorm-investigator.git)
+   cd queuestorm-investigator
+   ```
+
+Install dependencies:
+
+```bash
+npm install
+Start the subsystem server:
+```
+```bash
+npm start
+Access the API Core:
+Test your active local runtime loops via: http://localhost:8000/analyze-ticket
+```
