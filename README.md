@@ -1,4 +1,3 @@
-"# queuestorm-investigator" 
 # QueueStorm Investigator Engine 🚀
 > **Production-grade Automated Dispute Resolution & Fraud Detection Subsystem** > Engineered for the **SUST CSE Carnival 2026** Hackathon.
 
@@ -20,13 +19,17 @@ As deployed in the official repository:
 
 ```text
 queuestorm-investigator/
+├── assets/
+│   ├── result_1.png      # Health Probe Test Vector
+│   ├── result_2+.png     # Ledger Matching Verification Vector
+│   └── result_3+.png     # Security Injection Guard Vector
+├── src/
+│   ├── aiEngine.js       # Core artificial intelligence interface hooks
+│   ├── index.js          # Express app server and endpoint routing setup
+│   ├── investigator.js   # Main transaction mapping and analysis logic
+│   └── schemas.js        # Strict input validation and filters
 ├── .env.example
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
-├── README.md
-└── src/
-    ├── aiEngine.js       # Core artificial intelligence interface hooks
-    ├── index.js          # Express app server and endpoint routing setup
-    ├── investigator.js   # Main transaction mapping and analysis logic
-    └── schemas.js        # Strict input validation and sanitization filters
+└── README.md
