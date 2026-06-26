@@ -14,22 +14,22 @@ This project is a production-grade automated dispute resolution and fraud detect
 
 ## 🔄 System Execution Flow
 
-The engine handles incoming requests deterministically through the following automated lifecycle:
+The engine handles incoming requests deterministically through an automated, isolated processing lifecycle:
 
 ```mermaid
 graph TD
-    A[📩 Incoming HTTP Request] -->|POST /analyze-ticket| B(index.js Router)
-    B -->|Parse Request Middleware| C{schemas.js Filter}
-    C -->|Sanitize Input & Scrub PIN/OTP| D[investigator.js Core Engine]
-    D -->|Cross-Reference Ledger History| E[aiEngine.js Processing Layer]
-    E -->|Enforce Strict Data Schema Casting| F[📤 200 OK Structured JSON Response]
+    A[📩 Incoming HTTP Request] -->|POST /analyze-ticket| B(1. index.js Router)
+    B -->|Parse Request Middleware| C{2. schemas.js Filter}
+    C -->|Sanitize Input & Scrub PIN/OTP| D[3. investigator.js Core Engine]
+    D -->|Cross-Reference Ledger History| E[4. aiEngine.js Layer]
+    E -->|Enforce Strict Schema Casting| F[📤 200 OK Structured JSON Response]
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:1px
-    style C fill:#fdf,stroke:#333,stroke-width:1px
-    style D fill:#fbf,stroke:#333,stroke-width:1px
-    style E fill:#dff,stroke:#333,stroke-width:1px
-    style F fill:#bfb,stroke:#333,stroke-width:2px
+    style A fill:#238636,stroke:#30855c,stroke-width:2px,color:#fff
+    style B fill:#1f6feb,stroke:#388bfd,stroke-width:1px,color:#fff
+    style C fill:#8957e5,stroke:#a371f7,stroke-width:1px,color:#fff
+    style D fill:#d29922,stroke:#e3b341,stroke-width:1px,color:#fff
+    style E fill:#1f6feb,stroke:#388bfd,stroke-width:1px,color:#fff
+    style F fill:#238636,stroke:#30855c,stroke-width:2px,color:#fff
 ```
 
 1. Routing Layer (src/index.js): 
