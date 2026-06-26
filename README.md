@@ -24,12 +24,12 @@ graph TD
     D -->|Cross-Reference Ledger History| E[4. aiEngine.js Layer]
     E -->|Enforce Strict Schema Casting| F[📤 200 OK Structured JSON Response]
 
-    style A fill:#238636,stroke:#30855c,stroke-width:2px,color:#fff
-    style B fill:#1f6feb,stroke:#388bfd,stroke-width:1px,color:#fff
-    style C fill:#8957e5,stroke:#a371f7,stroke-width:1px,color:#fff
-    style D fill:#d29922,stroke:#e3b341,stroke-width:1px,color:#fff
-    style E fill:#1f6feb,stroke:#388bfd,stroke-width:1px,color:#fff
-    style F fill:#238636,stroke:#30855c,stroke-width:2px,color:#fff
+    style A fill:#004d40,stroke:#00bfa5,stroke-width:3px,color:#ffffff
+    style B fill:#0d47a1,stroke:#29b6f6,stroke-width:2px,color:#ffffff
+    style C fill:#4a148c,stroke:#ab47bc,stroke-width:2px,color:#ffffff
+    style D fill:#e65100,stroke:#ffb74d,stroke-width:2px,color:#ffffff
+    style E fill:#0d47a1,stroke:#29b6f6,stroke-width:2px,color:#ffffff
+    style F fill:#1b5e20,stroke:#66bb6a,stroke-width:3px,color:#ffffff
 ```
 
 1. Routing Layer (src/index.js): 
